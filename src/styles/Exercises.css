@@ -1,0 +1,127 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.exercises-app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercises-title {
+  margin-top: 20px;
+  margin-left: 40px;
+  display: flex;
+  cursor: default;
+}
+
+.exercises-logo {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  font-style: normal;
+  text-align: left;
+  color: black;
+  width: 250px;
+  cursor: pointer;
+}
+
+.exercises-page-info {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 10%;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  font-style: normal;
+}
+
+.exercises-page {
+  margin-right: 70px;
+  color: black;
+}
+
+.exercises-page:hover {
+  color: #007bff;
+}
+
+#exercises-page-in {
+  color: #07e3bb;
+}
+
+.exercises-info {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.exercises-info-button {
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  height: 60px;
+  width: 300px;
+  font-size: 20px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 50px;
+}
+
+.exercises-description {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 7%;
+  display: flex;
+}
+
+.exercises-img {
+  margin-left: 5%;
+}
+
+.img {
+  height: 300px;
+  border-radius: 20px;
+}
+
+.exercises-selected {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  font-style: normal;
+  text-align: center;
+  margin-top: 20px;
+  color: black;
+}
+
+.exercises-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  font-style: normal;
+  text-align: center;
+  color: black;
+  margin-left: 15%;
+  width: 500px;
+}
+
+.exercises-button-start {
+  border: none;
+  border-radius: 5px;
+  background-color: #3ca1ff;
+  color: white;
+  height: 60px;
+  width: 300px;
+  font-size: 20px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: bold;
+  margin-top: 15%;
+  cursor: pointer;
+}
+
+.exercises-button-start:hover {
+  background-color: #0051a8;
+}
