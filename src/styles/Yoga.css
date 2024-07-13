@@ -1,0 +1,82 @@
+/* App.css */
+
+.yoga-App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #05b8ff; /* Fondo fucsia estilo Velázquez */
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin-top: 200px; /* Aumentamos el margen superior para mover los elementos más abajo */
+}
+.item {
+  width: 300px; /* Ancho del contenedor individual */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar elementos horizontalmente */
+  margin: 10px; /* Espacio entre los contenedores */
+  background-color: #3a14e5; /* Fondo blanco */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.item img {
+  width: 100%; /* Ancho máximo de la imagen */
+  height: auto; /* Altura automática según el ancho */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin-bottom: 10px; /* Espacio inferior */
+}
+
+.item:hover {
+  background-color: white; /* Nuevo color de fondo al pasar el cursor */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Texto blanco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff00ff; /* Color de fondo fucsia más oscuro al pasar el cursor */
+}
+
+.bottom-button-container {
+  text-align: center; /* Centra el contenido horizontalmente */
+
+  margin-bottom: 20px; /* Margen inferior para separar del borde inferior */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.bottom-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Texto blanco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 200px; /* Ajusta el ancho máximo del botón */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.bottom-button:hover {
+  background-color: #0bd8d8; /* Color de fondo azul más oscuro al pasar el cursor */
+}
