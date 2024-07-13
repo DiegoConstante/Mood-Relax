@@ -25,7 +25,7 @@ function StartExercises() {
       </div>
       <div className="start-description">
         <div className="start-img">
-          <img className="img" src="../public/StartExercises.png" />
+          <img className="img" src="https://i.imgur.com/RvBbB8J.png" />
         </div>
       </div>
     </div>
