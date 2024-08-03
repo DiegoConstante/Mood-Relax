@@ -26,7 +26,9 @@ function Routines() {
           <div className="right-column">
             <button>Yoga Principiantes</button>
             <button>Ejercicios de Estiramiento</button>
-            <button className="saved-exercises">Ejercicios Guardados</button>
+            <Link to="/Profile" className="link">
+              <button className="saved-exercises">Perfil</button>
+            </Link>
           </div>
         </Link>
       </div>

@@ -1,0 +1,90 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+.register-app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.register-title {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.register {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register-label {
+  font-family: "Inria Sans", sans-serif;
+  font-size: 25px;
+  margin-bottom: 3px;
+  padding-right: 10px;
+}
+
+.register-input {
+  border-radius: 5px;
+  border: black 2px solid;
+  width: 350px;
+  height: 30px;
+  font-size: 25px;
+}
+
+.register-button {
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  height: 60px;
+  width: 180px;
+  font-size: 25px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.register-button-return {
+  border: none;
+  border-radius: 5px;
+  background-color: #0087a4;
+  color: white;
+  height: 60px;
+  width: 180px;
+  font-size: 25px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.register-button:hover {
+  background-color: #0051a8;
+}
+
+.register-button-return:hover {
+  background-color: #3ca1ff;
+}

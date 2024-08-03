@@ -1,14 +1,5 @@
-# Ignora la carpeta de dependencias
 node_modules/
-
-# Ignora archivos de configuración
 .env
-
-# Ignora archivos de logs
 *.log
-
-# Ignora archivos temporales
 *.tmp
-
-# Ignora archivos de sistema
 .DS_Store
