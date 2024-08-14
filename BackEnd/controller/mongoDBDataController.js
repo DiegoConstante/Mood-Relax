@@ -1,7 +1,7 @@
 import UserStats from "../models/userStats.js";
 import client from "../config/moodRelaxBDD.js";
 
-export const registerUser = async (req, res) => {
+export const registerUserMongoDB = async (req, res) => {
   const { email, nombre, contrasena, confirmContrasena, edad, pais } = req.body;
 
   if (!email || !nombre || !contrasena || !edad || !pais) {
@@ -9,11 +9,10 @@ export const registerUser = async (req, res) => {
   }
 
   if (contrasena !== confirmContrasena) {
-    return res.status(400).json({ error: "La contraseña no coincide" });
+    return res.status(400).json({ error: "Las contraseñas no coinciden" });
   }
 
   try {
-    // Verificar si el email ya está registrado
     const result = await client.query(
       "SELECT * FROM Usuarios WHERE email = $1",
       [email]
@@ -25,38 +24,23 @@ export const registerUser = async (req, res) => {
         .json({ error: "El correo electrónico ya está registrado" });
     }
 
-    // Registrar usuario en PostgreSQL
-    await client.query("SELECT insert_usuario($1, $2, $3, $4, $5)", [
-      email,
-      nombre,
-      contrasena,
-      edad,
-      pais,
-    ]);
+    await client.query(
+      "INSERT INTO Usuarios (email, nombre, contrasena, edad, pais) VALUES ($1, $2, $3, $4, $5)",
+      [email, nombre, contrasena, edad, pais]
+    );
 
-    // Registrar estadísticas en MongoDB
-    const userStat = new UserStats({
+    const newUserStat = new UserStats({
       email,
       edad,
       pais,
-      fechaRegistro: new Date(),
     });
 
-    await userStat.save();
+    console.log("Guardando en MongoDB:", newUserStat);
+    await newUserStat.save();
 
     res.status(201).json({ message: "Usuario registrado exitosamente" });
   } catch (error) {
     console.error("Error al registrar el usuario:", error);
     res.status(500).json({ error: "Error interno del servidor" });
-  }
-};
-
-export const getPaises = async (req, res) => {
-  try {
-    const result = await client.query('SELECT "ID", "NombrePais" FROM paises');
-    res.json(result.rows);
-  } catch (err) {
-    console.error("Error al obtener los países:", err.message);
-    res.status(500).json({ error: "Error al obtener los países" });
   }
 };

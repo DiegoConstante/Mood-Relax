@@ -1,5 +1,6 @@
 import express from "express";
 import client from "./config/moodRelaxBDD.js";
+import connectDB from "./config/mongoDBConfig.js";
 import cors from "cors";
 import router from "./routes/registro.js";
 
@@ -9,6 +10,11 @@ app.use(express.json());
 app.use("/users", router);
 app.use("/exercises", router);
 app.use("/api", router);
+app.use(router);
+app.use("/api", router);
+app.use("/api", router);
+
+connectDB();
 
 client
   .connect()

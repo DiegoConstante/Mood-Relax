@@ -15,11 +15,11 @@ const User = {
   },
 
   create: async (user) => {
-    const { email, username, password, age } = user;
+    const { email, nombre, contrasena, edad, pais } = user;
     try {
       await client.query(
-        "INSERT INTO users (email, username, password, age) VALUES ($1, $2, $3, $4)",
-        [email, username, password, age]
+        "INSERT INTO users (email, username, password, age, pais) VALUES ($1, $2, $3, $4, $5)",
+        [email, nombre, contrasena, edad]
       );
     } catch (error) {
       console.error("Error al crear usuario:", error);

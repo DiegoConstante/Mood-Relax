@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "../styles/LogInStyles.css";
+import "../styles/IniciarSesionStyles.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function LogIn() {
+function IniciarSesion() {
   const [password, setPassword] = useState("");
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", contrasena: "" });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
@@ -20,8 +20,8 @@ function LogIn() {
     if (!formData.email) {
       errors.email = "El email es requerido";
     }
-    if (!formData.password) {
-      errors.password = "La contraseña es requerida";
+    if (!formData.contrasena) {
+      errors.contrasena = "La contraseña es requerida";
     }
     return errors;
   };
@@ -41,7 +41,7 @@ function LogIn() {
       );
       setMessage("Inicio de sesión exitoso");
       localStorage.setItem("token", response.data.token); // Almacena el token en el almacenamiento local
-      navigate("/Routines"); // Redirige al usuario a una página protegida
+      navigate("/Ejercicios"); // Redirige al usuario a una página protegida
     } catch (error) {
       console.error("Error en el inicio de sesión:", error); // Agrega esta línea para más detalles en la consola
       setMessage(error.response.data.error || "Error al iniciar sesión");
@@ -69,16 +69,18 @@ function LogIn() {
           <label className="login-info-contraseña">Contraseña</label>
           <input
             className="login-password"
-            name="password"
+            name="contrasena"
             type="password"
-            value={formData.password}
+            value={formData.contrasena}
             onChange={handleChange}
             required
           />
         </div>
-        {errors.password && <p className="login-error">{errors.password}</p>}
+        {errors.contrasena && (
+          <p className="login-error">{errors.contrasena}</p>
+        )}
         <div className="login-buttons">
-          <Link to="/CreateUser">
+          <Link to={"/CrearCuenta"}>
             <button className="login-create">Crear Cuenta</button>
           </Link>
           <button className="login-login" type="submit">
@@ -90,4 +92,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default IniciarSesion;

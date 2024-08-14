@@ -1,19 +1,33 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../styles/ProfileStyles.css";
+import "../styles/PerfilDeUsuarioStyles.css";
 import { Link } from "react-router-dom";
 
-function Profile() {
+function PerfilDeUsuario() {
   const [formData, setFormData] = useState({
     email: "",
-    username: "",
-    password: "",
-    age: "",
+    nombre: "",
+    edad: "",
+    pais: "",
   });
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const [paises, setPaises] = useState([]);
+
+  useEffect(() => {
+    const fetchPaises = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/paises");
+        setPaises(response.data);
+      } catch (error) {
+        console.error("Error al obtener los países:", error);
+      }
+    };
+
+    fetchPaises();
+  }, []);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -44,11 +58,11 @@ function Profile() {
     if (!formData.email) {
       errors.email = "El email es requerido";
     }
-    if (!formData.username) {
-      errors.username = "El nombre de usuario es requerido";
+    if (!formData.nombre) {
+      errors.nombre = "El nombre de usuario es requerido";
     }
-    if (!formData.age) {
-      errors.age = "La edad es requerida";
+    if (!formData.edad) {
+      errors.edad = "La edad es requerida";
     }
     return errors;
   };
@@ -70,7 +84,7 @@ function Profile() {
         }
       );
       setMessage("Perfil actualizado exitosamente");
-      navigate("/Profile");
+      navigate("/PerfilDeUsuario");
     } catch (error) {
       console.error("Error updating profile:", error);
       setMessage("Error al actualizar el perfil");
@@ -99,40 +113,46 @@ function Profile() {
           <input
             className="update-input"
             type="text"
-            name="username"
-            value={formData.username}
+            name="nombre"
+            value={formData.nombre}
             onChange={handleChange}
             required
           />
-          {errors.username && <p>{errors.username}</p>}
-        </div>
-        <div className="update-container">
-          <label className="update-text">Contraseña:</label>
-          <input
-            className="update-input"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          {errors.nombre && <p>{errors.nombre}</p>}
         </div>
         <div className="update-container">
           <label className="update-text">Edad:</label>
           <input
             className="update-input"
             type="number"
-            name="age"
-            value={formData.age}
+            name="edad"
+            value={formData.edad}
             onChange={handleChange}
             required
           />
-          {errors.age && <p>{errors.age}</p>}
+        </div>
+        <div className="update-container">
+          <label className="update-text">País</label>
+          <select
+            className="update-input"
+            name="pais"
+            value={formData.pais}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Seleccione un país</option>
+            {paises.map((pais) => (
+              <option key={pais.ID} value={pais.ID}>
+                {pais.NombrePais}
+              </option>
+            ))}
+          </select>
+          {errors.pais && <p>{errors.pais}</p>}
         </div>
         <button className="update-button" type="submit">
           Actualizar Perfil
         </button>
-        <Link to="/routines">
+        <Link to={"/Ejercicios"}>
           <button className="update-button" type="button">
             Regresar
           </button>
@@ -142,4 +162,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default PerfilDeUsuario;

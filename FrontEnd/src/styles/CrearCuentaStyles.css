@@ -67,6 +67,10 @@ body {
   margin-top: 30px;
 }
 
+.register-button:hover {
+  background-color: #0051a8;
+}
+
 .register-button-return {
   border: none;
   border-radius: 5px;
@@ -78,13 +82,36 @@ body {
   font-family: "Inria Sans", sans-serif;
   font-weight: bold;
   cursor: pointer;
-  margin: 20px;
-}
-
-.register-button:hover {
-  background-color: #0051a8;
+  margin-top: 20px;
 }
 
 .register-button-return:hover {
   background-color: #3ca1ff;
+}
+
+@media (max-width: 768px) {
+  .register-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .register-label {
+    font-size: 18px;
+  }
+
+  .register-input {
+    width: 100%;
+    font-size: 18px;
+    height: 35px;
+  }
+
+  .register-button {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .register-button-return {
+    width: 100%;
+    font-size: 20px;
+  }
 }

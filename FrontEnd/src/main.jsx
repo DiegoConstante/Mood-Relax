@@ -1,46 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import LogIn from "./pages/LogIn";
-import CreateUser from "./pages/Createuser";
+import IniciarSesion from "./pages/IniciarSesion";
+import CrearCuenta from "./pages/CrearCuenta";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Routines from "./pages/Routines";
-import Yoga from "./pages/Yoga";
-import Exercises from "./pages/Exercises";
-import StartExercises from "./pages/StartExercises";
-import Profile from "./pages/Profile";
+import Ejercicios from "./pages/Ejercicios";
+import RutinasEM from "./pages/RutinasEM";
+import InicarEjercicios from "./pages/IniciarEjercicios";
+import PerfilDeUsuario from "./pages/PerfilDeUsuario";
+import DescripcionDeEjercicios from "./pages/DescripcionDeEjercicios";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LogIn />,
+    element: <IniciarSesion />,
   },
   {
-    path: "/LogIn",
-    element: <LogIn />,
+    path: "/IniciarSesion",
+    element: <IniciarSesion />,
   },
   {
-    path: "/CreateUser",
-    element: <CreateUser />,
+    path: "/CrearCuenta",
+    element: <CrearCuenta />,
   },
   {
-    path: "/Routines",
-    element: <Routines />,
+    path: "/Ejercicios",
+    element: <Ejercicios />,
   },
   {
-    path: "/Yoga",
-    element: <Yoga />,
+    path: "/RutinasEM",
+    element: <RutinasEM />,
   },
   {
-    path: "/Exercises",
-    element: <Exercises />,
+    path: "/DescripcionDeEjercicios/:id",
+    element: <DescripcionDeEjercicios />,
   },
   {
-    path: "/StartExercises",
-    element: <StartExercises />,
+    path: "/IniciarEjercicios/:id",
+    element: <InicarEjercicios />,
   },
   {
-    path: "/Profile",
-    element: <Profile />,
+    path: "/PerfilDeUsuario",
+    element: <PerfilDeUsuario />,
   },
 ]);
 

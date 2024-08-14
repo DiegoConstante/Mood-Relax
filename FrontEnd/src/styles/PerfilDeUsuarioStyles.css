@@ -90,3 +90,74 @@ body {
 .update-button:hover {
   background-color: #0051a8;
 }
+
+/* Para pantallas pequeñas como teléfonos móviles */
+@media (max-width: 600px) {
+  .update-title {
+    font-size: 30px;
+    margin-bottom: 5%;
+  }
+
+  .update-message {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .update-text,
+  .update-input {
+    width: 80%;
+    font-size: 18px;
+  }
+
+  .update-button {
+    width: 80%;
+    height: 50px;
+    font-size: 18px;
+    margin-top: 5%;
+  }
+}
+
+/* Para pantallas medianas como tabletas */
+@media (max-width: 900px) {
+  .update-title {
+    font-size: 40px;
+  }
+
+  .update-message {
+    font-size: 22px;
+  }
+
+  .update-text,
+  .update-input {
+    width: 80%;
+    font-size: 22px;
+  }
+
+  .update-button {
+    width: 200px;
+    font-size: 18px;
+  }
+}
+
+/* Para pantallas grandes como monitores de escritorio */
+@media (min-width: 1200px) {
+  .update-title {
+    font-size: 55px;
+  }
+
+  .update-message {
+    font-size: 30px;
+  }
+
+  .update-text,
+  .update-input {
+    width: 600px;
+    font-size: 30px;
+  }
+
+  .update-button {
+    width: 60%;
+    font-size: 22px;
+    height: 70px;
+  }
+}

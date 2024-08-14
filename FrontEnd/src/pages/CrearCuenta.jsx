@@ -1,20 +1,35 @@
-import React, { useState } from "react";
-import "../styles/CreateUserStyles.css";
+import { useState, useEffect } from "react";
+import "../styles/CrearCuentaStyles.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-function CreateUser() {
+function CrearUsuario() {
   const [formData, setFormData] = useState({
     email: "",
-    username: "",
-    password: "",
-    confirmPassword: "",
-    age: "",
+    nombre: "",
+    contrasena: "",
+    confirmContrasena: "",
+    edad: "",
+    pais: "",
   });
 
+  const [paises, setPaises] = useState([]);
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchPaises = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/paises");
+        setPaises(response.data);
+      } catch (error) {
+        console.error("Error al obtener los países:", error);
+      }
+    };
+
+    fetchPaises();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -25,24 +40,27 @@ function CreateUser() {
 
   const validate = () => {
     let errors = {};
-    if (!formData.username) {
-      errors.username = "El nombre de usuario es requerido";
+    if (!formData.nombre) {
+      errors.nombre = "El nombre de usuario es requerido";
     }
     if (!formData.email) {
       errors.email = "El correo electrónico es requerido";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       errors.email = "El correo electrónico no es válido";
     }
-    if (!formData.password) {
-      errors.password = "La contraseña es requerida";
-    } else if (formData.password.length < 6) {
-      errors.password = "La contraseña debe tener al menos 6 caracteres";
+    if (!formData.contrasena) {
+      errors.contrasena = "La contraseña es requerida";
+    } else if (formData.contrasena.length < 6) {
+      errors.contrasena = "La contraseña debe tener al menos 6 caracteres";
     }
-    if (formData.password !== formData.confirmPassword) {
-      errors.confirmPassword = "Las contraseñas no coinciden";
+    if (formData.contrasena !== formData.confirmContrasena) {
+      errors.confirmContrasena = "Las contraseñas no coinciden";
     }
-    if (!formData.age) {
-      errors.age = "La edad es requerida";
+    if (!formData.edad) {
+      errors.edad = "La edad es requerida";
+    }
+    if (!formData.pais) {
+      errors.pais = "Seleccione un país";
     }
     return errors;
   };
@@ -57,11 +75,11 @@ function CreateUser() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/users/register", // Asegúrate de que esta URL es correcta
+        "http://localhost:3001/users/register",
         formData
       );
       setMessage("Usuario registrado exitosamente.");
-      navigate("/LogIn"); // Usa navigate en lugar de history.push
+      navigate("/IniciarSesion");
     } catch (error) {
       setMessage(error.response.data.error || "Error al registrar el usuario.");
     }
@@ -89,50 +107,68 @@ function CreateUser() {
           <input
             className="register-input"
             type="text"
-            name="username"
-            value={formData.username}
+            name="nombre"
+            value={formData.nombre}
             onChange={handleChange}
             required
           />
-          {errors.username && <p>{errors.username}</p>}
+          {errors.nombre && <p>{errors.nombre}</p>}
         </div>
         <div className="register">
           <label className="register-label">Contraseña</label>
           <input
             className="register-input"
             type="password"
-            name="password"
-            value={formData.password}
+            name="contrasena"
+            value={formData.contrasena}
             onChange={handleChange}
             required
           />
-          {errors.password && <p>{errors.password}</p>}
+          {errors.contrasena && <p>{errors.contrasena}</p>}
         </div>
         <div className="register">
           <label className="register-label">Confirmar Contraseña</label>
           <input
             className="register-input"
             type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
+            name="confirmContrasena"
+            value={formData.confirmContrasena}
             onChange={handleChange}
           ></input>
-          {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+          {errors.confirmContrasena && <p>{errors.confirmContrasena}</p>}
         </div>
         <div className="register">
           <label className="register-label">Edad</label>
           <input
             className="register-input"
             type="number"
-            name="age"
-            value={formData.age}
+            name="edad"
+            value={formData.edad}
             onChange={handleChange}
             required
           />
-          {errors.age && <p>{errors.age}</p>}
+          {errors.edad && <p>{errors.edad}</p>}
         </div>
-        <div className="login-buttons-container">
-          <Link to="/LogIn">
+        <div className="register">
+          <label className="register-label">País</label>
+          <select
+            className="register-input"
+            name="pais"
+            value={formData.pais}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Seleccione un país</option>
+            {paises.map((pais) => (
+              <option key={pais.ID} value={pais.ID}>
+                {pais.NombrePais}
+              </option>
+            ))}
+          </select>
+          {errors.pais && <p>{errors.pais}</p>}
+        </div>
+        <div className="register-buttons-container">
+          <Link className="register-link" to={"/IniciarSesion"}>
             <button className="register-button-return">Regresar</button>
           </Link>
           <button className="register-button" type="submit">
@@ -144,4 +180,4 @@ function CreateUser() {
   );
 }
 
-export default CreateUser;
+export default CrearUsuario;

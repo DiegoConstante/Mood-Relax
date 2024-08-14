@@ -4,9 +4,10 @@ export const getUser = async (req, res) => {
   const userId = req.user.userId;
 
   try {
-    const result = await client.query("SELECT * FROM users WHERE id = $1", [
-      userId,
-    ]);
+    const result = await client.query(
+      "SELECT id, email, nombre, edad, pais FROM usuarios WHERE id = $1",
+      [userId]
+    );
 
     if (result.rows.length === 0) {
       return res.status(404).json({ message: "Usuario no encontrado" });
@@ -15,17 +16,17 @@ export const getUser = async (req, res) => {
     const user = result.rows[0];
     res.json(user);
   } catch (error) {
-    console.error(error);
+    console.error("Error al obtener los datos del usuario:", error);
     res.status(500).json({ message: "Error al obtener los datos del usuario" });
   }
 };
 
 export const updateUser = async (req, res) => {
   const userId = req.user.userId;
-  const { email, username, password, age } = req.body;
+  const { email, nombre, edad, pais, password } = req.body;
 
   try {
-    const result = await client.query("SELECT * FROM users WHERE id = $1", [
+    const result = await client.query("SELECT * FROM usuarios WHERE id = $1", [
       userId,
     ]);
 
@@ -42,17 +43,17 @@ export const updateUser = async (req, res) => {
       updateFields.push(`email = $${updateFields.length + 1}`);
       updateValues.push(email);
     }
-    if (username) {
-      updateFields.push(`username = $${updateFields.length + 1}`);
-      updateValues.push(username);
+    if (nombre) {
+      updateFields.push(`nombre = $${updateFields.length + 1}`);
+      updateValues.push(nombre);
     }
-    if (password) {
-      updateFields.push(`password = $${updateFields.length + 1}`);
-      updateValues.push(password);
+    if (edad) {
+      updateFields.push(`edad = $${updateFields.length + 1}`);
+      updateValues.push(edad);
     }
-    if (age) {
-      updateFields.push(`age = $${updateFields.length + 1}`);
-      updateValues.push(age);
+    if (pais) {
+      updateFields.push(`pais = $${updateFields.length + 1}`);
+      updateValues.push(pais);
     }
 
     if (updateFields.length === 0) {
@@ -62,14 +63,14 @@ export const updateUser = async (req, res) => {
     }
 
     updateValues.push(userId);
-    const updateQuery = `UPDATE users SET ${updateFields.join(
+    const updateQuery = `UPDATE usuarios SET ${updateFields.join(
       ", "
     )} WHERE id = $${updateValues.length}`;
     await client.query(updateQuery, updateValues);
 
     res.json({ message: "Perfil actualizado exitosamente" });
   } catch (error) {
-    console.error(error);
+    console.error("Error al actualizar el perfil:", error);
     res.status(500).json({ message: "Error al actualizar el perfil" });
   }
 };

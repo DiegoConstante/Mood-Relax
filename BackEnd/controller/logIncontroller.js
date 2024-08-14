@@ -2,16 +2,17 @@ import jwt from "jsonwebtoken";
 import client from "../config/moodRelaxBDD.js";
 
 export const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, contrasena } = req.body;
 
-  if (!email || !password) {
+  if (!email || !contrasena) {
     return res.status(400).json({ error: "Email y contraseña son requeridos" });
   }
 
   try {
-    const result = await client.query("SELECT * FROM users WHERE email = $1", [
-      email,
-    ]);
+    const result = await client.query(
+      "SELECT * FROM Usuarios WHERE email = $1",
+      [email]
+    );
 
     if (result.rows.length === 0) {
       return res.status(401).json({ error: "Email o contraseña incorrectos" });
@@ -19,7 +20,14 @@ export const loginUser = async (req, res) => {
 
     const user = result.rows[0];
 
-    if (password !== user.password) {
+    const passwordMatchResult = await client.query(
+      "SELECT crypt($1, contrasena) = contrasena AS password_match FROM Usuarios WHERE email = $2",
+      [contrasena, email]
+    );
+
+    const passwordMatch = passwordMatchResult.rows[0].password_match;
+
+    if (!passwordMatch) {
       return res.status(401).json({ error: "Email o contraseña incorrectos" });
     }
 
