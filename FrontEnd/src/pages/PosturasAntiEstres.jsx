@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "../styles/Exercises.css";
+import "../styles/DescripcionDEStyles.css";
 
-function Exercises() {
+function PosturasAntiEstres() {
   return (
     <div className="exercises-app">
       <div className="exercises-title">
@@ -13,7 +13,7 @@ function Exercises() {
             <div className="exercises-page">Rutinas</div>
           </Link>
           <div className="exercises-page" id="exercises-page-in">
-            Yoga Avanzado
+            Posturas Anti Estres
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@ function Exercises() {
             src="https://images.ecestaticos.com/gnBzw92jLNdX0ELHqXqKtdX71fM=/152x0:2173x1516/557x418/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Ffde%2F466%2Ff01%2Ffde466f01483ddb15a4d6d9d9cdd97ad.jpg"
             alt="Imagen 2"
           />
-          <div className="exercises-selected">Yoga Avanzado</div>
+          <div className="exercises-selected">Posturas Anti Estres</div>
         </div>
         <div className="exercises-text">
           <div className="exercises-text-description">
@@ -50,4 +50,4 @@ function Exercises() {
   );
 }
 
-export default Exercises;
+export default PosturasAntiEstres;

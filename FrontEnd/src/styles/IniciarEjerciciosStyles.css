@@ -1,0 +1,379 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.start-app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-title {
+  margin-top: 20px;
+  margin-left: 40px;
+  display: flex;
+  cursor: default;
+}
+
+.start-logo {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  font-style: normal;
+  text-align: left;
+  color: black;
+  width: 250px;
+  cursor: pointer;
+}
+
+a.link-title-start {
+  text-decoration: none;
+}
+
+.start-page-info {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 10%;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  font-style: normal;
+}
+
+.start-page {
+  margin-right: 90px;
+  color: black;
+}
+
+.start-page:hover {
+  color: #007bff;
+}
+
+#exercises-page-in {
+  color: #07e3bb;
+}
+
+.start-info {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.start-info-button {
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  height: 60px;
+  width: 300px;
+  font-size: 20px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 50px;
+  margin-top: 3%;
+}
+
+.start-container {
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-section {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: normal;
+  color: black;
+  margin-bottom: 2%;
+}
+
+.start-options {
+  height: 40px;
+  width: 33%;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 4%;
+  cursor: pointer;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.start-details-container {
+  display: flex;
+}
+
+.start-name-details {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  font-style: normal;
+  color: black;
+  width: 65%;
+  margin-bottom: 2%;
+}
+
+.start-name {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+  margin-bottom: 3%;
+}
+
+.start-recomendations {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: black;
+}
+
+.start-description {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  color: black;
+  border: none;
+  width: 80%;
+}
+
+.start-image {
+  height: 300px;
+  border-radius: 20px;
+}
+
+.start-countdown-container {
+  display: flex;
+  flex-direction: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+.start-countdown-title {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  font-style: normal;
+  color: black;
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.start-rep-title {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.start-rep-input {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.start-time-title {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.start-time-input {
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
+}
+
+.start-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-button {
+  margin: 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Inria Sans", sans-serif;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  color: white;
+}
+
+/* Para pantallas pequeñas como teléfonos móviles */
+@media (max-width: 600px) {
+  .start-title {
+    margin-top: 20px;
+    display: flex;
+    cursor: default;
+  }
+
+  .start-logo {
+    font-size: 30px;
+    width: 180px;
+    margin-left: 20px;
+  }
+
+  .start-page-info {
+    margin-left: -1%;
+    flex-direction: column;
+    font-size: 20px;
+  }
+
+  .start-page {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .start-info-button {
+    width: 50%;
+    padding-left: 20px;
+    font-size: 18px;
+  }
+
+  .start-options {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .start-name-details {
+    width: 100%;
+    margin-top: 70%;
+  }
+
+  .start-image {
+    position: absolute;
+    height: 200px;
+    border-radius: 20px;
+    display: flex;
+  }
+
+  .start-countdown-container {
+    flex-direction: column;
+  }
+
+  .repetitions-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .start-countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .start-rep-input,
+  .start-time-input {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .start-buttons-container {
+    flex-direction: column;
+  }
+
+  .start-button {
+    width: 80%;
+    margin: 5px 0;
+  }
+}
+
+/* Para pantallas medianas como tabletas */
+@media (max-width: 900px) {
+  .start-title {
+    margin-top: 20px;
+    margin-left: 0px;
+    display: flex;
+    cursor: default;
+  }
+
+  .start-logo {
+    font-size: 35px;
+    width: 200px;
+  }
+
+  .start-page-info {
+    margin-left: -1%;
+    font-size: 22px;
+  }
+
+  .start-options {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .start-countdown-title,
+  .start-rep-title,
+  .start-time-title {
+    font-size: 25px;
+  }
+
+  .start-rep-input,
+  .start-time-input {
+    width: 60%;
+    font-size: 18px;
+  }
+}
+
+/* Para pantallas grandes como monitores de escritorio */
+@media (min-width: 1200px) {
+  .start-title {
+    margin-top: 20px;
+    margin-left: 40px;
+    display: flex;
+    cursor: default;
+  }
+  .start-logo {
+    font-size: 45px;
+    width: 280px;
+  }
+
+  .start-page-info {
+    margin-left: 12%;
+    font-size: 28px;
+  }
+
+  .start-options {
+    width: 30%;
+    font-size: 22px;
+  }
+
+  .start-rep-input,
+  .start-time-input {
+    width: 40%;
+    font-size: 22px;
+  }
+
+  .start-button {
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
