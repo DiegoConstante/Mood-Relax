@@ -1,3 +1,4 @@
+/* Estilos Generales */
 html,
 body {
   height: 100%;
@@ -22,7 +23,6 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: bold;
   font-size: 40px;
-  font-style: normal;
   text-align: left;
   color: black;
   width: 250px;
@@ -36,7 +36,6 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 25px;
-  font-style: normal;
 }
 
 .exercises-page {
@@ -91,7 +90,6 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 30px;
-  font-style: normal;
   text-align: center;
   margin-top: 20px;
   color: black;
@@ -101,10 +99,9 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 25px;
-  font-style: normal;
   text-align: center;
   color: black;
-  margin-left: 15%;
+  margin-left: 10%;
   width: 500px;
 }
 
@@ -124,4 +121,99 @@ body {
 
 .exercises-button-start:hover {
   background-color: #0051a8;
+}
+
+/* Media Queries */
+
+/* Para tablets (pantallas entre 768px y 1024px) */
+@media (max-width: 1024px) {
+  .exercises-logo {
+    font-size: 32px;
+    width: 200px;
+  }
+
+  .exercises-page-info {
+    font-size: 20px;
+    margin-left: 5%;
+  }
+
+  .exercises-page {
+    margin-right: 13px;
+    color: black;
+  }
+
+  .exercises-info-button,
+  .exercises-button-start {
+    width: 250px;
+    font-size: 18px;
+    padding-left: 40px;
+  }
+
+  .exercises-description {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+  }
+
+  .exercises-img {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .img {
+    height: 250px;
+  }
+
+  .exercises-text {
+    font-size: 20px;
+    width: 80%;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/* Para móviles (pantallas de menos de 768px) */
+@media (max-width: 768px) {
+  .exercises-logo {
+    font-size: 24px;
+    width: 150px;
+  }
+
+  .exercises-page-info {
+    font-size: 18px;
+    margin-left: 2%;
+  }
+
+  .exercises-info-button,
+  .exercises-button-start {
+    width: 200px;
+    font-size: 16px;
+    padding-left: 30px;
+  }
+
+  .exercises-description {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+  }
+
+  .exercises-img {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .img {
+    height: 200px;
+  }
+
+  .exercises-selected {
+    font-size: 24px;
+  }
+
+  .exercises-text {
+    font-size: 18px;
+    width: 90%;
+    margin-left: 0;
+    text-align: center;
+  }
 }

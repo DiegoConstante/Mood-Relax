@@ -1,0 +1,159 @@
+/* Estilos Generales */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.login-app {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para Pantallas Grandes (Computadoras) */
+.login-title {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 76px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.login-output {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-info-usuario,
+.login-info-contraseña {
+  width: 460px;
+  font-family: "Inria Sans", sans-serif;
+  font-size: 25px;
+  margin-bottom: 3px;
+  text-align: left;
+}
+
+.login-info-contraseña {
+  margin-top: 50px;
+}
+
+.login-username,
+.login-password {
+  border-radius: 5px;
+  border: black 2px solid;
+  width: 450px;
+  height: 40px;
+  font-size: 25px;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+  width: 460px; /* Asegura que los botones juntos no superen este ancho */
+}
+
+.login-create,
+.login-login {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  height: 60px;
+  width: 180px; /* Mismo ancho para ambos botones */
+  font-size: 25px;
+  font-family: "Inria Sans", sans-serif;
+  font-weight: bold;
+}
+
+.login-create {
+  background-color: #0087a4;
+  color: white;
+}
+
+.login-create:hover {
+  background-color: #002259;
+}
+
+.login-login {
+  background-color: black;
+  color: white;
+}
+
+.login-login:hover {
+  background-color: #717171;
+}
+
+/* Media Queries */
+
+/* Para tablets (pantallas entre 768px y 1024px) */
+@media (max-width: 1024px) {
+  .login-title {
+    font-size: 48px;
+  }
+
+  .login-info-usuario,
+  .login-info-contraseña,
+  .login-buttons {
+    width: 100%;
+  }
+
+  .login-username,
+  .login-password {
+    width: 100%;
+    font-size: 20px;
+    height: 35px;
+  }
+
+  .login-buttons {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .login-create,
+  .login-login {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Para móviles (pantallas de menos de 768px) */
+@media (max-width: 768px) {
+  .login-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .login-info-usuario,
+  .login-info-contraseña,
+  .login-buttons {
+    width: 100%;
+  }
+
+  .login-username,
+  .login-password {
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+  }
+
+  .login-buttons {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .login-create,
+  .login-login {
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+}

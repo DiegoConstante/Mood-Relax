@@ -53,7 +53,6 @@ a.link-title {
 
 .routines-options {
   display: flex;
-  flex-direction: inline;
   justify-content: center;
   align-items: center;
   margin-top: 10%;
@@ -97,4 +96,50 @@ button.saved-exercises {
 
 .link {
   text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .routines-logo {
+    font-size: 32px;
+  }
+
+  .routines-info-button,
+  .routines-options button {
+    width: 80%;
+    font-size: 18px;
+  }
+
+  .right-column,
+  .left-column {
+    margin-right: 50px;
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .routines-logo {
+    font-size: 24px;
+  }
+
+  .routines-info-button {
+    width: 50%;
+  }
+  .routines-options button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .right-column,
+  .left-column {
+    margin: 20px 10px;
+  }
+
+  .routines-options {
+    flex-direction: column;
+    margin-top: 5%;
+  }
+
+  .routines-options button {
+    margin: 15px 0;
+  }
 }

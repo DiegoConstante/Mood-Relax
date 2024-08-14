@@ -1,22 +1,7 @@
-import React from "react";
 import "../styles/Yoga.css";
 import { Link } from "react-router-dom";
 
-function handleMouseEnter() {
-  const item = document.querySelector(".item");
-  if (item) {
-    item.style.backgroundColor = "#f0f0f0";
-  }
-}
-
-function handleMouseLeave() {
-  const item = document.querySelector(".item");
-  if (item) {
-    item.style.backgroundColor = "#ffffff";
-  }
-}
-
-function Yoga() {
+function RutinasEM() {
   return (
     <div className="yoga-App">
       <div className="image-container">
@@ -49,7 +34,7 @@ function Yoga() {
           <button className="button">Yoga Avanzado</button>
         </div>
       </div>
-      <Link to="/Routines">
+      <Link to={"/Ejercicios"}>
         <div className="bottom-button-container">
           <button className="bottom-button">Regresar al Menú</button>
         </div>
@@ -58,4 +43,4 @@ function Yoga() {
   );
 }
 
-export default Yoga;
+export default RutinasEM;
